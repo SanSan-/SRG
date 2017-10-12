@@ -67,6 +67,14 @@
         error: ''
       }
     },
+    computed: {
+      ...mapGetters([
+        'currentUser'
+      ]),
+      isAuthenticated() {
+        return this.currentUser.email !== null;
+      }
+    },
     methods: {
       submit() {
         let credentials = {
@@ -76,7 +84,23 @@
         // We need to pass the component's this context
         // to properly make use of http in the auth service
         this.$store.dispatch('login', this, credentials, 'MyGames')
+      },
+      checkAuth() {
+        if (this.isAuthenticated) {
+          router.push({
+              name: 'MyGames'
+            }
+          )
+        } else {
+          router.push({
+              name: 'Login'
+            }
+          )
+        }
       }
+    },
+    created() {
+      this.checkAuth()
     }
   }
 </script>
