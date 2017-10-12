@@ -51,7 +51,7 @@
       dropdown
     },
     created() {
-      this.checkAuth(this.$route.name);
+      this.checkAuth(this.$route.path);
     }
   }
 </script>
