@@ -52,6 +52,6 @@ export const checkAuth = function ({commit}, falseRoute) {
     )
     .catch((error) => {
       commit(LOGIN_OUT_FAIL, error);
-      router.push({path: falseRoute})
+      router.push({name: falseRoute})
     })
 };
