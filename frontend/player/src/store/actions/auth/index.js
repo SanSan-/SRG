@@ -39,7 +39,7 @@ export const logout = function ({commit}) {
     .catch((error) => commit(LOGIN_OUT_FAIL, error))
 };
 
-export const checkAuth = function ({commit}, falseRoute) {
+export const checkAuth = function ({commit}) {
   authService.checkAuth()
     .then((response) => response.json())
     .then((user) => {
@@ -52,6 +52,6 @@ export const checkAuth = function ({commit}, falseRoute) {
     )
     .catch((error) => {
       commit(LOGIN_OUT_FAIL, error);
-      router.push({name: falseRoute})
+      router.push({name: 'SRG'})
     })
 };

@@ -42,8 +42,8 @@
       ...mapActions([
         'logout'
       ]),
-      checkAuth(falseRoute) {
-        this.$store.dispatch('checkAuth', falseRoute);
+      checkAuth() {
+        this.$store.dispatch('checkAuth');
       }
     },
     components: {
@@ -51,7 +51,7 @@
       dropdown
     },
     created() {
-      this.checkAuth(this.$route.name);
+      this.checkAuth();
     }
   }
 </script>
